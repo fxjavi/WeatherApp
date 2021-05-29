@@ -20,12 +20,9 @@ const loadMarkers = () => {
 
     const localStorageMarkers = localStorage.getItem("markers");
     if (localStorageMarkers == null) {
-        mapPosition = {
-            center: [0,0],
-            zoom: 11
-        };
+        markersPositions = [];
     } else {
-        mapPosition = JSON.parse(localStorageMarkers);
+        markersPositions = JSON.parse(localStorageMarkers);
     }
 };
 
@@ -87,9 +84,7 @@ const renderMap = () => {
 const renderMarkers = () => {
     markersPositions.forEach(m => {
         new mapboxgl.Marker().setCenter(m).addTo(map);
-        markers.push(marker);
-    })
-
+    });
 };
 
 const flyToLocation = () => {
