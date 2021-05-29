@@ -16,6 +16,12 @@ let markers;
 
 const loadMarkers = () => {
 
+    const localStorageMarkers = localStorage.getItem("markers");
+    if (localStorageMarkers == null) {
+        markersPositions = [];
+    } else {
+        markersPositions = JSON.parse(localStorageMarkers);
+    }
 };
 
 const loadMapInfo = () => {
@@ -81,10 +87,11 @@ const initMapEvents = () => {
     });
 };
 
-const loadSingleView = (lngLat) => {
+const loadSingleView = async (lngLat) => {
     loadSpinner();
-    fetchData();
+    await fetchData();
 
+    unloadSpinner();
     renderSingleViewHeader();
     renderSingleViewMain();
     renderSingleViewFooter();
@@ -98,8 +105,8 @@ const unloadSpinner = () => {
 
 };
 
-const fetchData = async () => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${ev.lngLat.lat}&lon=${ev.lngLat.lng}&appid=68f4dadc8b9ce3073fa685e298366fbe
+const fetchData = async (lngLat) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lngLat.lat}&lon=${ev.lngLat.lng}&appid=68f4dadc8b9ce3073fa685e298366fbe
     `;
     const weather = await fetch(url).then(d => d.json()).then(d => d);
     unloadSpinner();
@@ -115,6 +122,7 @@ const renderSingleViewMain = () => {
 
 const renderSingleViewFooter = () => {
 
+    saveMarker();
 };
 
 const saveMarker = () => {
