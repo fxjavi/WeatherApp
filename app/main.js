@@ -1,3 +1,4 @@
+import mapboxgl from 'mapbox-gl';
 import '../assets/sass/main.scss'
 
 
@@ -13,14 +14,18 @@ let mapPosition;
 let view;
 let map;
 let markers;
+let weather;
 
 const loadMarkers = () => {
 
     const localStorageMarkers = localStorage.getItem("markers");
     if (localStorageMarkers == null) {
-        markersPositions = [];
+        mapPosition = {
+            center: [0,0],
+            zoom: 11
+        };
     } else {
-        markersPositions = JSON.parse(localStorageMarkers);
+        mapPosition = JSON.parse(localStorageMarkers);
     }
 };
 
@@ -38,23 +43,37 @@ const loadMapView = () => {
 };
 
 const renderMapViewHeader = () => {
+    const header = document.querySelector('.header');
+    header.innerHTML = "<h2>Busca lo que quieras</h2>";
 
 };
 
 const renderMapViewMain = () => {
-
+    const main = document.querySelector('.main');
+    main.innerHTML = '<div id="my_map"></div>';
+    renderMap();
 };
 
 const renderMapViewFooter = () => {
-    
-    flyToLocation();
+    const footer = document.querySelector('.footer');
+    footer.innerHTML = '<span class="fa fa-crosshair"></span><span>Go to position</span>';
+
+    footer.addEventListener("click", () => {
+        flyToLocation();
+    });
 };
 
 const renderMap = () => {
-
+    map = new mapboxgl.Map({
+        container: 'my_map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: mapPosition.center,
+        zoom: mapPosition.zoom
+    });
 };
 
 const renderMarkers = () => {
+    markersPositions.forEach()
 
 };
 
