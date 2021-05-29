@@ -99,7 +99,8 @@ const unloadSpinner = () => {
 };
 
 const fetchData = async () => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${ev.lngLat.lat}&lon=${ev.lngLat.lng}&appid=b9`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${ev.lngLat.lat}&lon=${ev.lngLat.lng}&appid=68f4dadc8b9ce3073fa685e298366fbe
+    `;
     unloadSpinner();
 };
 
