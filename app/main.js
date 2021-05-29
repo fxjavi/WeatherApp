@@ -5,9 +5,6 @@ import '../assets/sass/main.scss';
 
 window.addEventListener("load", () => {
     loadMapView();
-    renderMap();
-    renderMarkers();
-    initMapEvents();
 });
 
 let markersPositions;
@@ -60,6 +57,8 @@ const renderMapViewMain = () => {
     const main = document.querySelector('.main');
     main.innerHTML = '<div id="my_map"></div>';
     renderMap();
+    renderMarkers();
+    initMapEvents();
 };
 
 const renderMapViewFooter = () => {
@@ -83,7 +82,8 @@ const renderMap = () => {
 
 const renderMarkers = () => {
     markersPositions.forEach(m => {
-        new mapboxgl.Marker().setCenter(m).addTo(map);
+        console.log(m);
+        new mapboxgl.Marker().setLngLat([m.coord.lon, m.coord.lat]).addTo(map);
     });
 };
 
@@ -119,7 +119,7 @@ const initMapEvents = () => {
 const loadSingleView = async (lngLat) => {
     view = "single";
     loadSpinner();
-    await fetchData();
+    await fetchData(lngLat);
 
     unloadSpinner();
     renderSingleViewHeader();
@@ -138,14 +138,13 @@ const unloadSpinner = () => {
 };
 
 const fetchData = async (lngLat) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lngLat.lat}&lon=${ev.lngLat.lng}&appid=68f4dadc8b9ce3073fa685e298366fbe
-    `;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lngLat.lat}&lon=${lngLat.lng}&appid=68f4dadc8b9ce3073fa685e298366fbe`;
     weather = await fetch(url).then(d => d.json()).then(d => d);
 };
 
 const renderSingleViewHeader = () => {
     const header = document.querySelector('.header');
-    header.innerHTML = '<h2><button><span class="fa fa-chevron-left"></span></button>Estás en un sitio...</h2>';
+    header.innerHTML = `<h2><button><span class="fa fa-chevron-left"></span></button>${weather.name}</h2>`;
 
     const buttonBack = header.querySelector('button');
     buttonBack.addEventListener("click", () => {
@@ -172,4 +171,18 @@ const renderSingleViewFooter = () => {
 };
 
 const saveMarker = () => {
+    markersPositions.push(weather);
+    localStorage.setItem("markers", JSON.stringify(markersPositions));
+
+    mapPosition = {
+        center: [weather.coord.lon, weather.coord.lat],
+        zoom: 11
+    };
+
+    const storingObj = {
+        lat: weather.coord.lat,
+        lng: weather.coord.lon,
+        zoom: getZoom
+    };
+    localStorage.setItem("map.info", JSON.stringify(storingObj));
 };
