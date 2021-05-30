@@ -152,9 +152,26 @@ const renderSingleViewHeader = () => {
     })
 };
 
+let today = new Date();
+
+let time =  today.getHours() + ":" + (today.getMinutes() < 10? '0' : '') + today.getMinutes();
+
 const renderSingleViewMain = () => {
     const main = document.querySelector('.main');
-    main.innerHTML = 'las cosas que vengan de weather...';
+    main.innerHTML = `<div class="weather_container"> 
+    
+    <h4><i class="fa fa-clock-o" style="margin-left: .9em; font-size: 24px;"></i></h4> <h4><i class="fa fa-sun-o" style="margin-right: .8em; font-size: 24px;"></i></h4> <h4><i class="fas fa-wind" style="margin-right: 1em; font-size: 24px;"></i></h4> </div>
+    
+    <div class="back_color_1"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${Math.round(((weather.wind.speed) * 1.6))} km/h</h5></div> </div>
+    <div class="back_color_2"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
+    <div class="back_color_3"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
+    <div class="back_color_4"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
+    <div class="back_color_5"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
+    <div class="back_color_6"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
+    <div class="back_color_7"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
+    <div class="back_color_8"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
+    <div class="back_color_9"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
+    </div>`;;
 
 };
 
@@ -182,7 +199,7 @@ const saveMarker = () => {
     const storingObj = {
         lat: weather.coord.lat,
         lng: weather.coord.lon,
-        zoom: getZoom
+        zoom: 11
     };
     localStorage.setItem("map.info", JSON.stringify(storingObj));
 };
