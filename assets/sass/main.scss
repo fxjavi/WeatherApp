@@ -9,9 +9,9 @@
 $corporateColor: tomato;
 $font_family_base: 'Inter', 'Sans Serif';
 
-// * {
-//     border: 1px solid $corporateColor;
-// }
+* {
+    border: 1px solid $corporateColor;
+}
 
 html,
 body {
@@ -36,8 +36,9 @@ body {
         justify-content: space-between;
         padding: 1rem;
         background-color: rgb(27, 27, 27);
-        position: relative;
         top: 0;
+        width: 100%;
+        position: sticky;
 
         @media (min-width: 768px) {
             padding: 1.5rem;
@@ -61,6 +62,40 @@ body {
                 display: inline;
             }    
         }
+
+        .single_view_heading {
+            display: flex;
+            align-items: center;
+            justify-items: left;
+
+            button {
+                margin-right: 1rem;
+                background-color: rgba(0, 0, 0, 0);
+                color: white;
+                padding: .5rem 1rem .5rem 1rem;
+                border-radius: .5rem;
+                transition: ease .1s;
+                border: solid 1px rgba(255, 255, 255, 0.144);
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.075);
+                    cursor: pointer;
+                }
+    
+                &:focus {
+                    outline: none;
+                }
+    
+                &:active {
+                    background-color: rgba(0, 0, 0, 0.452);
+                }        
+    
+                span {
+                    font-size: 1rem;
+                }
+            } 
+        }
+
     }
     .main {
         grid-area: 2 / 1 / span 2 / span 1;
@@ -72,6 +107,9 @@ body {
         justify-content: center;
         padding: 1rem;
         background-color: rgb(27, 27, 27);
+        position: sticky;
+        bottom: 0;
+        width: 100%;
 
         .footer_button {
             background-color: rgba(255, 255, 255, 0);

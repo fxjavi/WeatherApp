@@ -144,7 +144,7 @@ const fetchData = async (lngLat) => {
 
 const renderSingleViewHeader = () => {
     const header = document.querySelector('.header');
-    header.innerHTML = `<h2><button><span class="fa fa-chevron-left"></span></button>${weather.name}</h2>`;
+    header.innerHTML = `<h2 class="single_view_heading"><button><span class="fa fa-arrow-left"></span></button>${weather.name}</h2>`;
 
     const buttonBack = header.querySelector('button');
     buttonBack.addEventListener("click", () => {
@@ -160,24 +160,13 @@ const renderSingleViewMain = () => {
     const main = document.querySelector('.main');
     main.innerHTML = `<div class="weather_container"> 
     
-    <h4><i class="fa fa-clock-o" style="margin-left: .9em; font-size: 24px;"></i></h4> <h4><i class="fa fa-sun-o" style="margin-right: .8em; font-size: 24px;"></i></h4> <h4><i class="fas fa-wind" style="margin-right: 1em; font-size: 24px;"></i></h4> </div>
-    
-    <div class="weather_card"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${Math.round(((weather.wind.speed) * 1.6))} km/h</h5></div> </div>
-    <div class="weather_card"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
-    <div class="weather_card"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
-    <div class="weather_card"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
-    <div class="weather_card"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
-    <div class="weather_card"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
-    <div class="weather_card"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
-    <div class="weather_card"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
-    <div class="weather_card"> <div class="fetch_container"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5>${weather.wind.speed} mph</h5></div> </div>
-    </div>`;;
+    <div class="weather_card"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5><span class="fa fa-wind"></span>${Math.round(((weather.wind.speed) * 1.6))} km/h</h5></div>`;
 
 };
 
 const renderSingleViewFooter = () => {
     const footer = document.querySelector('.footer');
-    footer.innerHTML = '<span class="fa fa-save"></span><span>Save data</span>';
+    footer.innerHTML = '<button class="footer_button"><span class="fa fa-save"></span><span>Save data</span></button>';
 
     footer.addEventListener("click", () => {
         saveMarker();
