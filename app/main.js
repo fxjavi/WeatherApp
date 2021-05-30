@@ -49,7 +49,7 @@ const loadMapView = () => {
 
 const renderMapViewHeader = () => {
     const header = document.querySelector('.header');
-    header.innerHTML = "<h2>Busca lo que quieras</h2>";
+    header.innerHTML = "<h2>Open Weather App</h2>";
 
 };
 
@@ -63,7 +63,7 @@ const renderMapViewMain = () => {
 
 const renderMapViewFooter = () => {
     const footer = document.querySelector('.footer');
-    footer.innerHTML = '<span class="fa fa-crosshair"></span><span>Go to position</span>';
+    footer.innerHTML = '<button class="footer_button"><span class="fa fa-crosshairs"></span><span>Go to position</span></button>';
 
     footer.addEventListener("click", () => {
         flyToLocation();
@@ -74,7 +74,7 @@ const renderMap = () => {
     mapboxgl.accessToken = 'pk.eyJ1IjoiZnhqYXZpIiwiYSI6ImNrcDlsdHQ0cDBsazgyb24xeDFwc2E4NXYifQ.Kp39aXZl5D2aV2dtkhlL3A';
     map = new mapboxgl.Map({
         container: 'my_map',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/fxjavi/ckpayk0242mdm17p5ccmcszfe',
         center: [mapPosition.lng, mapPosition.lat],
         zoom: mapPosition.zoom
     });

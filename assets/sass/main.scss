@@ -7,10 +7,11 @@
 
 
 $corporateColor: tomato;
+$font_family_base: 'Inter', 'Sans Serif';
 
-* {
-    border: 1px solid $corporateColor;
-}
+// * {
+//     border: 1px solid $corporateColor;
+// }
 
 html,
 body {
@@ -30,12 +31,53 @@ body {
 
     .header {
         grid-area: 1 / 1 / span 1 / span 1;
+        display: flex;
+        align-content: center;
+        padding: 1rem;
+        background-color: rgb(27, 27, 27);
+        position: relative;
+        top: 0;
+
+        h2 {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+            font-weight: 200;
+            color: white;
+        }
     }
     .main {
         grid-area: 2 / 1 / span 2 / span 1;
     }
     .footer {
         grid-area: 4 / 1 / span 1 / span 1;
+        display: flex;
+        align-content: center;
+        padding: 1rem;
+        background-color: rgb(27, 27, 27);
+
+        .footer_button {
+            background-color: rgba(255, 255, 255, 0.068);
+            border: none;
+            padding: .5rem 1.2rem .5rem 1rem;
+            border-radius: 2rem;
+
+            &:focus {
+                outline: none;
+            }
+
+
+            span {
+                color: white;
+                font-size: .8rem;
+                font-weight: 300;
+                text-transform: uppercase;
+                letter-spacing: .1rem;
+    
+                &.fa-crosshairs {
+                    margin-right: .8rem;
+                }
+            }
+        }
     }
     .spinner {
         grid-area: 1 / 1 / -1 / span 1;
