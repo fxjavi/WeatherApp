@@ -33,16 +33,33 @@ body {
         grid-area: 1 / 1 / span 1 / span 1;
         display: flex;
         align-content: center;
+        justify-content: space-between;
         padding: 1rem;
         background-color: rgb(27, 27, 27);
         position: relative;
         top: 0;
+
+        @media (min-width: 768px) {
+            padding: 1.5rem;
+        }
 
         h2 {
             margin-bottom: 0;
             font-size: 1.2rem;
             font-weight: 200;
             color: white;
+        }
+
+        h3 {
+            display: none;
+            margin-bottom: 0;
+            font-weight: 300;
+            color: white;
+            font-size: smaller;
+
+            @media (min-width: 768px) {
+                display: inline;
+            }    
         }
     }
     .main {
@@ -52,19 +69,37 @@ body {
         grid-area: 4 / 1 / span 1 / span 1;
         display: flex;
         align-content: center;
+        justify-content: center;
         padding: 1rem;
         background-color: rgb(27, 27, 27);
 
         .footer_button {
-            background-color: rgba(255, 255, 255, 0.068);
+            background-color: rgba(255, 255, 255, 0);
             border: none;
             padding: .5rem 1.2rem .5rem 1rem;
-            border-radius: 2rem;
+            border-radius: .5rem;
+            transition: ease .1s;
+            width: 100%;
+            border: solid 1px rgba(255, 255, 255, 0.144);
+
+            @media (min-width: 768px) {
+                width: fit-content;
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.075);
+                cursor: pointer;
+            }
 
             &:focus {
                 outline: none;
             }
 
+            &:active {
+                background-color: rgba(0, 0, 0, 0.452);
+            }
 
             span {
                 color: white;
@@ -94,6 +129,11 @@ body {
     visibility: hidden;
     &.opened {
         visibility: visible;
+    }
+
+    .fa-spinner {
+        color: white;
+        font-size: 1.5rem;
     }
 }
 
