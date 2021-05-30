@@ -42,7 +42,7 @@ body {
         z-index: 99;
         
 
-        @media (min-width: 768px) {
+        @media (min-width: 600px) {
             padding: 1.5rem;
         }
 
@@ -60,7 +60,7 @@ body {
             color: white;
             font-size: smaller;
 
-            @media (min-width: 768px) {
+            @media (min-width: 600px) {
                 display: inline;
             }    
         }
@@ -131,7 +131,7 @@ body {
             width: 100%;
             border: solid 1px rgba(255, 255, 255, 0.144);
 
-            @media (min-width: 768px) {
+            @media (min-width: 600px) {
                 width: fit-content;
                 padding-left: 4rem;
                 padding-right: 4rem;
@@ -190,7 +190,7 @@ body {
 .single_view_main {
     padding: 0 1rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: 600px) {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(10rem, auto));
         gap: 1rem;
@@ -207,7 +207,7 @@ body {
     background-color: rgba(0, 0, 0, .3);
     margin-bottom: .5rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: 600px) {
         flex-flow: column;
         align-items: center;
         margin-bottom: 0;
@@ -220,7 +220,7 @@ body {
         color: rgb(73, 73, 73);
         font-size: 1.2rem;
 
-        @media (min-width: 768px) {
+        @media (min-width: 600px) {
             width: 100%;
         } 
     }
@@ -230,7 +230,7 @@ body {
         font-weight: 100;
         font-size: 1.8rem;
 
-        @media (min-width: 768px) {
+        @media (min-width: 600px) {
             width: 100%;
             font-size: 4rem;
             padding-top: 4rem;
@@ -248,7 +248,7 @@ body {
         display: flex;
         align-items: center;
 
-        @media (min-width: 768px) {
+        @media (min-width: 600px) {
             width: 100%;
             justify-content: flex-end;
         } 
