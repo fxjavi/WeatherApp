@@ -158,9 +158,9 @@ let time =  today.getHours() + ":" + (today.getMinutes() < 10? '0' : '') + today
 
 const renderSingleViewMain = () => {
     const main = document.querySelector('.main');
-    main.innerHTML = `<div class="weather_container"> 
+    main.innerHTML = `<div class="single_view_main"> 
     
-    <div class="weather_card"><h5>${time}</h5><h5>${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5><span class="fa fa-wind"></span>${Math.round(((weather.wind.speed) * 1.6))} km/h</h5></div>`;
+    <div class="weather_card"><h5 class="time">${time}</h5><h5 class="temp">${Math.round(((weather.main.temp) - 273.15))} ºC</h5><h5 class="wind"><span class="fa fa-wind"></span>${Math.round(((weather.wind.speed) * 1.6))} km/h</h5></div>`;
 
 };
 
