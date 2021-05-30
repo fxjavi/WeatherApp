@@ -199,6 +199,13 @@ body {
     background-color: rgba(0, 0, 0, .3);
     margin-bottom: .5rem;
 
+    @media (min-width: 768px) {
+        width: fit-content;
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+
+
     .time {
         margin-bottom: 0;
         font-weight: 600;
@@ -217,9 +224,21 @@ body {
     .wind {
         margin-bottom: 0;
         font-weight: 200;
+        color: white;
+        display: flex;
+        align-items: center;
 
         span {
             font-size: 1rem;
+            color: white;
+            width: 2rem;
+            margin-right: .5rem;
+
+            svg {
+                fill: rgb(73, 73, 73);
+                transform: scale(2);
+                height: 1rem;
+            }
         }
 
     }
